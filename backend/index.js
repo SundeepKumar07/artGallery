@@ -9,9 +9,9 @@ import authRouter from './routes/authRouter.js';
 import userRouter from './routes/userRouter.js';
 import visitorRouter from './routes/visitorRouter.js';
 const app = express();
-
 // ✅ Load environment variables
 dotenv.config();
+const PORT =  3000;
 
 // ✅ Middleware
 const _dirname = path.resolve();
@@ -51,7 +51,6 @@ app.use((err, req, res, next) => {
 });
 
 // ✅ Start server
-const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`App is running at port ${PORT}`);
 });
