@@ -40,11 +40,11 @@ export default function ArtWorks({artWorks, triggerReload}, loading) {
                 <div className='flex flex-col gap-0'>
                   <div className='flex gap-2 text-xl'>
                     <h1 className='font-semibold'>Title:</h1>
-                    <p className='truncated'>{artwork.name}</p>
+                    <p className='truncate'>{artwork.name}</p>
                   </div>
                   <div className='flex gap-2'>
                     <h1 className='font-semibold'>Category:</h1>
-                    <p className='truncated'>{artwork.category}</p>
+                    <p className='truncate'>{artwork.category}</p>
                   </div>
                   <div className=''>
                     <span className='font-semibold pr-2'>Description:</span>

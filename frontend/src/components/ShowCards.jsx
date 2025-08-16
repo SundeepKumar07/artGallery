@@ -15,15 +15,15 @@ export default function ShowCards({results}) {
               <div>
                 <div className="flex gap-2 text-xl">
                   <h1 className="font-semibold">Title:</h1>
-                  <p>{artwork.name}</p>
+                  <p className="truncate">{artwork.name}</p>
                 </div>
                 <div className="flex gap-2">
                   <h1 className="font-semibold">Category:</h1>
-                  <p>{artwork.category}</p>
+                  <p className="truncate">{artwork.category}</p>
                 </div>
                 <div>
                   <span className="font-semibold pr-2">Description:</span>
-                  <span>{artwork.description.slice(0, 100)}...</span>
+                  <p>{artwork.description.slice(0, 100)}...</p>
                 </div>
               </div>
             </div>
