@@ -18,7 +18,7 @@ export default function PurchaseForm({purchaseForm, handleChange, result, onClos
       if(!data){
         console.log(data.message);
       }
-      navigate('/menu');
+      navigate('/');
       toast.success(data.message);
     } catch (error) {
       console.log(error.message);
