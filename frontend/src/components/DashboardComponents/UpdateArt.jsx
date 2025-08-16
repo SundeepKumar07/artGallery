@@ -56,7 +56,7 @@ export default function UploadArt({artwork}) {
       console.log(updateData.message);
       setLoading(false);
       setSuccess(updateData.message);
-      toast.success(data.message);
+      toast.success(updateData.message);
       setForm({name: '', description: '', category: ''});
       setFile(null);
     } catch (error) {

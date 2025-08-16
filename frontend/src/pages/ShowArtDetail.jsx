@@ -81,7 +81,7 @@ export default function ShowArtDetail() {
       </div>
 
       {/* Footer CTA */}
-      {!currentUser &&
+      {currentUser !== result.userRef &&
         <div className="bg-gray-900 py-12 mt-10">
           <div className="max-w-6xl mx-auto text-center text-white space-y-4">
             <h3 className="text-2xl font-semibold">Like what you see?</h3>
