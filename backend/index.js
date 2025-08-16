@@ -2,6 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
+import path from 'path';
 
 import mongoDB from './config/db.js';
 import authRouter from './routes/authRouter.js';
@@ -13,6 +14,7 @@ const app = express();
 dotenv.config();
 
 // ✅ Middleware
+const _dirname = path.resolve();
 app.use(express.json());
 app.use(cookieParser()); // ❗️CALL the function — you missed `()`
 app.use(cors({
@@ -24,13 +26,18 @@ app.use(cors({
 mongoDB();
 
 // ✅ Routes
-app.get('/', (req, res) => {
-  res.send("Welcome Sundeep");
-});
+// app.get('/', (req, res) => {
+//   res.send("Welcome Sundeep");
+// });
 
 app.use('/api/auth', authRouter);
 app.use('/api/art', userRouter);
 app.use('/api/visitor', visitorRouter);
+
+app.use(express.static(path.join(_dirname,'..', '/frontend/dist')));
+app.get('/', (_, res) => {
+  res.sendFile(path.join(_dirname,'..', 'frontend', 'dist', 'index.html'))
+})
 
 // ✅ Error handling middleware (should be after all routes)
 app.use((err, req, res, next) => {

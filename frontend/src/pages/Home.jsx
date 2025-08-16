@@ -94,14 +94,12 @@ export default function Home() {
               >
                 Explore Artworks
               </Link>
-              {!currentUser && 
                 <Link
-                  to="/sign-in"
+                  to={`${currentUser? '/menu': '/sign-in'}`}
                   className="rounded-full border border-white/70 px-6 py-3 font-semibold text-white hover:bg-white/10 transition"
                 >
                   Sell Your Art
                 </Link>
-              }
             </div>
           </motion.div>
         </div>
@@ -144,7 +142,7 @@ export default function Home() {
               Explore Now
             </Link>
             <Link
-              to="/sign-in"
+              to={`${currentUser? '/menu': '/sign-in'}`}
               className="rounded-full border border-white/70 px-6 py-3 font-semibold text-white hover:bg-white/10 transition"
             >
               Sell Your Artwork
@@ -167,7 +165,7 @@ export default function Home() {
             <ul className="space-y-2 text-sm">
               <li><Link to="/" className="hover:text-white">Home</Link></li>
               <li><Link to="/search" className="hover:text-white">Explore</Link></li>
-              {!currentUser && <li><Link to="/sign-in" className="hover:text-white">Sell Art</Link></li>}
+              <li><Link to={`${currentUser? '/menu': '/sign-in'}`} className="hover:text-white">Sell Art</Link></li>
               <li><Link to="/about" className="hover:text-white">About</Link></li>
             </ul>
           </div>
