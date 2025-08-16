@@ -24,18 +24,26 @@ export default function Menu() {
   }, [activeMenu]);
 
   const logOut = async () => {
-    const url = `${import.meta.env.VITE_API_BACKEND}/api/auth/sign-out`;
-    const res = await fetch(url, {
-      method: 'POST',
-      credentials: 'include',
-    });
-    const data = await res.json();
-    if (!data.success) {
-      console.log(data.message);
+    try {
+      const url = `${import.meta.env.VITE_API_BACKEND}/api/auth/sign-out`;
+      const res = await fetch(url, {
+        method: 'POST',
+        credentials: 'include',
+      });
+      const data = await res.json();
+
+      if (!data.success) {
+        toast.error(data.message);
+        return;
+      }
+
+      dispatch(signInSuccess(null));
+      navigate('/');
+      toast.success(data.message);
+    } catch (err) {
+      console.error(err);
+      toast.error("Something went wrong while logging out!");
     }
-    dispatch(signInSuccess(null));
-    navigate('/');
-    toast.success(data.message);
   };
 
   const renderContent = () => {
@@ -56,7 +64,7 @@ export default function Menu() {
   return (
     <div className="flex gap-3">
       {/* Sidebar */}
-      <div className="pl-2 w-15 sm:w-55 pt-20 list-none flex gap-4 sm:gap-5 items-center sm:items-start sm:pl-7 flex-col sticky top-0 h-screen bg-white">
+      <div className="pl-2 w-15 sm:w-55 pt-20 flex flex-col gap-4 sm:gap-5 items-center sm:items-start sm:pl-7 sticky top-0 h-screen bg-white">
         <SidebarItem
           label="Dashboard"
           icon={<FiGrid className="w-5 h-5" />}
@@ -99,21 +107,14 @@ export default function Menu() {
 // Sidebar Item Component
 function SidebarItem({ label, icon, isActive, onClick }) {
   return (
-    <li
+    <button
       onClick={onClick}
-      className={`list-none relative group hover:scale-105 transition-transform duration-300 ${
-        isActive ? 'text-blue-500 font-semibold' : ''
-      }`}
+      className={`w-full text-left flex items-center gap-2 cursor-pointer transition-transform duration-300 py-2 px-2 rounded-md
+        ${isActive ? 'text-blue-500 font-semibold bg-blue-50' : 'hover:scale-105 hover:bg-gray-100'}
+      `}
     >
-      <span className="flex gap-2 items-center cursor-pointer">
-        {icon}
-        <span className="hidden sm:block">{label}</span>
-      </span>
-      <span
-        className={`absolute left-0 -bottom-1 h-[2px] bg-blue-500 transition-all ${
-          isActive ? 'w-5 sm:w-full' : 'w-0 group-hover:w-5 group-hover:sm:w-full'
-        }`}
-      ></span>
-    </li>
+      {icon}
+      <span className="hidden sm:block">{label}</span>
+    </button>
   );
 }
