@@ -77,7 +77,7 @@ export default function UploadArt() {
   }
 
   return (
-    <div className='h-screen pl-5'>
+    <div className='h-screen'>
     <form onSubmit={handleSubmit} className='w-full flex flex-col gap-2'>
       <div className='flex flex-col'>
         <h1 className='text-2xl font-semibold'>Upload Artwork</h1>

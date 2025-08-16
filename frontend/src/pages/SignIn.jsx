@@ -60,11 +60,11 @@ export default function SignIn() {
       </div>
 
       <div className='flex items-center justify-center hover:cursor-pointer bg-white rounded'>
-        <span className={`py-1 px-18 sm:px-22 text-xl ${loginButton && 'bg-gray-200'}`} onClick={()=>setLoginButton(true)}>Sign in</span>
-        <span className={`py-1 px-18 sM:px-22 text-xl ${!loginButton && 'bg-gray-200'}`} onClick={()=>setLoginButton(false)}>Sign Up</span>
+        <span className={`py-1 px-13 sm:px-22 text-xl ${loginButton && 'bg-gray-200'}`} onClick={()=>setLoginButton(true)}>Sign in</span>
+        <span className={`py-1 px-13 sM:px-22 text-xl ${!loginButton && 'bg-gray-200'}`} onClick={()=>setLoginButton(false)}>Sign Up</span>
       </div>
 
-      <form onSubmit={handleSubmit} className="flex justify-center flex-col gap-6 py-8 px-5 bg-white sm:w-113 w-105 rounded">
+      <form onSubmit={handleSubmit} className="flex justify-center flex-col gap-6 py-8 px-5 bg-white sm:w-113 w-95 rounded">
         <div>
           <h1 className="text-2xl">{loginButton? 'Login': 'Create Account'}</h1>
           <p className="text-sm">Enter you credentials to access your account</p>

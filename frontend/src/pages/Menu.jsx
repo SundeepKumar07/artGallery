@@ -56,7 +56,7 @@ export default function Menu() {
   return (
     <div className="flex gap-3">
       {/* Sidebar */}
-      <div className="w-15 sm:w-55 pt-20 list-none flex gap-4 sm:gap-5 items-center sm:items-start sm:pl-7 flex-col sticky top-0 h-screen bg-white">
+      <div className="pl-2 w-15 sm:w-55 pt-20 list-none flex gap-4 sm:gap-5 items-center sm:items-start sm:pl-7 flex-col sticky top-0 h-screen bg-white">
         <SidebarItem
           label="Dashboard"
           icon={<FiGrid className="w-5 h-5" />}
