@@ -1,6 +1,5 @@
 
 export default function ViewPurchaseRequests({ purchaseReq }) {
-  console.log(purchaseReq);
 
   return (
     <div className="mt-6 space-y-8">

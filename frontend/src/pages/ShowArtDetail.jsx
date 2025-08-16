@@ -16,7 +16,6 @@ export default function ShowArtDetail() {
       [e.target.name]: e.target.value
     });
   }
-  console.log(purchaseForm);
   
   useEffect(() => {
     const fetchData = async () => {

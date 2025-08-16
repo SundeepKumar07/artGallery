@@ -5,7 +5,6 @@ export default function PurchaseForm({purchaseForm, handleChange, result, onClos
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(artworkId);
     const url = `${import.meta.env.VITE_API_BACKEND}/api/visitor/create-request/${artworkId}`;
     try {
       const res = await fetch(url, {
@@ -19,7 +18,6 @@ export default function PurchaseForm({purchaseForm, handleChange, result, onClos
       if(!data){
         console.log(data.message);
       }
-      console.log(data.message);
       navigate('/menu');
       toast.success(data.message);
     } catch (error) {

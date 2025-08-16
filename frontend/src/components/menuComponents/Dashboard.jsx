@@ -76,7 +76,6 @@ export default function Dashboard() {
         <div
           onClick={() => {
             setShowArtWorks(false);
-            console.log('Purchase Requests clicked');
           }}
           className="rounded h-30 flex flex-col justify-center gap-2 px-5 my-2 bg-white shadow-md w-55 cursor-pointer"
         >

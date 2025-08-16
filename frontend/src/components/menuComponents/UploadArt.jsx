@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
 import {useNavigate} from 'react-router-dom';
-
+import {toast} from 'react-toastify';
 export default function UploadArt() {
   const navigate = useNavigate();
   const fileRef = useRef();
@@ -14,7 +14,6 @@ export default function UploadArt() {
   }
   const handleChange = (e) => {
     setForm({...form, [e.target.name]: e.target.value});
-    console.log(form);
   }
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -63,7 +62,6 @@ export default function UploadArt() {
         setError(data.message);
         return console.log(data.message);
       }
-      console.log(data);
       console.log(data.message);
       setLoading(false);
       setSuccess(data.message);

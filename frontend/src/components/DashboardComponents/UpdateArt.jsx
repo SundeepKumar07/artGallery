@@ -15,7 +15,6 @@ export default function UploadArt({artwork}) {
   }
   const handleChange = (e) => {
     setForm({...form, [e.target.name]: e.target.value});
-    console.log(form);
   }
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -36,7 +35,6 @@ export default function UploadArt({artwork}) {
             setLoading(false);
             return console.log("cloud error");
         }
-        console.log(data.secure_url);
         // setForm({...form, imageUrl: data.secure_url});
         setForm({...form, imageUrl: data.secure_url});
       }
@@ -55,7 +53,6 @@ export default function UploadArt({artwork}) {
         setError(updateData.message);
         return console.log(updateData.message);
       }
-      console.log(updateData);
       console.log(updateData.message);
       setLoading(false);
       setSuccess(updateData.message);

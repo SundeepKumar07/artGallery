@@ -30,7 +30,6 @@ export default function UpdateProfile() {
                 dispatch(updateFailure(data.message))
                 return console.log(data.message);
             }
-            console.log(data.message);
             handleSubmit();
         } catch (error) {
             dispatch(updateFailure(error.message))
@@ -52,7 +51,6 @@ export default function UpdateProfile() {
             const data = await res.json();
             if(!data.success){
                 dispatch(updateFailure(data.message));
-                console.log(data.message);
             }
             dispatch(updateSuccess(data.user));
             navigate('/menu');

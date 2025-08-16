@@ -16,7 +16,6 @@ export default function OAuth() {
             const provieer = new GoogleAuthProvider();
             const auth = getAuth(app); 
             const result = await signInWithPopup(auth, provieer);
-            console.log(result);
             const url = `${import.meta.env.VITE_API_BACKEND}/api/auth/google`;
             const res = await fetch(url, {
                 method: 'POST',
@@ -33,7 +32,6 @@ export default function OAuth() {
                 return;
             }
             dispatch(signInSuccess(data.user));
-            console.log('Google Sign-In Successful!');
             setLoading(false);
             navigate('/menu');
             toast.success(data.message);
